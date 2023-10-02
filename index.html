@@ -2,10 +2,23 @@
 <html>
 <head>
     <title>My GIS Data</title>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to My GIS Data</h1>
     <p>Here's a link to download the shapefile:</p>
     <a href="Watersheds_all.zip">Download Shapefile</a>
+
+    <!-- Add the GeoJSON map section here -->
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([0, 0], 10); // Set map center and zoom
+        var geojsonLayer = L.geoJSON.ajax("Watershed_Export.geojson").addTo(map); // Load GeoJSON
+    </script>
 </body>
 </html>
+
